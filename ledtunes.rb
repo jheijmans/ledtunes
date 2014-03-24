@@ -1,16 +1,16 @@
 require 'rubygems' 
 require 'bundler/setup'  
 require 'libusb'
-require 'itunes_observer'
+# require 'itunes_observer'
 load 'dcled_ruby.rb'
 
-# Dcled.new.message("aap!")
+Dcled.new.message(`osascript CurrentTrack.scpt`)
 
-observer = ITunesObserver.new
-observer.on_play {|result|
- puts '%s - %s' % [result['Artist'], result['Name']]
-}
-observer.run
+# observer = ITunesObserver.new
+# observer.on_play {|result|
+#  puts '%s - %s' % [result['Artist'], result['Name']]
+# }
+# observer.run
 
 # usb = LIBUSB::Context.new
 # usb.devices(idVendor: 0x1d34, idProduct: 0x0013).each do |device|
